@@ -29,6 +29,7 @@ Unless mentioned otherwise, results are shown from a run over only a subset of t
 Results with 100-dimensional representation space look quite good, similar to the results shown in Fig. 1 in the paper. Maybe training for more epochs or from the whole dataset will make the images even sharper.
 
 `python glo.py $LSUN_DIR -o d100 -gpu -d 100 -n 100000`
+
 ![](d100_rec_epoch_024.png)
 
 ---
@@ -36,25 +37,32 @@ Results with 100-dimensional representation space look quite good, similar to th
 Results with 512-dimensional representation space:
 
 `python glo.$LSUN_DIR -o d512 -gpu -d 512 -n 100000`
+
 ![](d512_rec_epoch_024.png)
 ---
 
 Comparison to L2 reconstruction loss, 100-d representation space:
+
 `python glo.py $LSUN_DIR -o d100_l2 -gpu -d 512 -n 100000 -l l2`
+
 ![](d100_l2_rec_epoch_024.png)
 
 ---
 
 Comparison to L2 reconstruction loss, 512-d representation space:
+
 `python glo.py $LSUN_DIR -o d512_l2 -gpu -d 512 -n 100000 -l l2`
+
 ![](d512_l2_rec_epoch_024.png)
 ---
 
 I observed that initialization of the latent vectors with PCA is very crucial. 
-Results from random (normally distributed) look not so good
+Results from random (normally distributed) look not so good.
+
 `python glo.py $LSUN_DIR -o d100_rand -gpu -d 100 -n 100000 -i random -e 100`
 
 After 25 epochs, loss is only `0.31` (when initializing from PCA, loss after only 1 epoch is already `0.23`). Reconstructions look really blurry:
+
 ![](d100_rand_rec_epoch_024.png)
 
 
