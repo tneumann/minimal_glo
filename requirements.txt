@@ -1,0 +1,6 @@
+numpy>=1.11
+pillow>=3.4
+plac>=0.9.6
+python-lmdb=0.92
+tqdm=4.19.4
+torch>=0.2.0
